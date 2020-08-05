@@ -37,9 +37,18 @@ class ProductController extends Controller
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
+	
 	public function store(Request $request)
 	{
-		dd("Cadastrando");
+
+		if ($request->file('photo')->isValid()) {
+			$filename = $request->name . $request->photo->extension();
+			dd($request->photo->storeAs('products', $filename));
+		}
+
+		// dd($request->except('_token'));
+
+		// dd($request->only(['name', 'description']));
 	}
 
 	/**
