@@ -3,6 +3,9 @@
 Route::resource('products', 'ProductController');
 // Route::get('products', 'ProductController@create')->name('products.create');
 
+
+
+
 Route::middleware([])->group(function () {
 
 	Route::prefix('admin')->group(function () {
