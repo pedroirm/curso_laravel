@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUpdateProductRequest;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -34,17 +35,17 @@ class ProductController extends Controller
 	/**
 	 * Store a newly created resource in storage.
 	 *
-	 * @param  \Illuminate\Http\Request  $request
+	 * @param  \App\Http\Requests\StoreUpdateProductRequest  $request
 	 * @return \Illuminate\Http\Response
 	 */
-	
-	public function store(Request $request)
-	{
 
-		if ($request->file('photo')->isValid()) {
-			$filename = $request->name . $request->photo->extension();
-			dd($request->photo->storeAs('products', $filename));
-		}
+	public function store(StoreUpdateProductRequest $request)
+	{
+		dd('ok');
+		// if ($request->file('photo')->isValid()) {
+		// 	$filename = $request->name . $request->photo->extension();
+		// 	dd($request->photo->storeAs('products', $filename));
+		// }
 
 		// dd($request->except('_token'));
 
